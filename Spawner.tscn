@@ -1,6 +1,35 @@
 [gd_scene format=3 uid="uid://bb3bnd2vaq02k"]
 
 [ext_resource type="Script" uid="uid://y4tr3yvjp7qi" path="res://spawner.gd" id="1_mimr8"]
+[ext_resource type="Texture2D" uid="uid://ct078edwe36bi" path="res://icon.svg" id="2_gnend"]
+
+[sub_resource type="Curve2D" id="Curve2D_gnend"]
 
 [node name="Spawner" type="Node2D" unique_id=790367624]
 script = ExtResource("1_mimr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1580750449]
+texture = ExtResource("2_gnend")
+
+[node name="Timer" type="Timer" parent="." unique_id=549303291]
+
+[node name="Button" type="Button" parent="." unique_id=783487779]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1150841083]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=689788839]
+
+[node name="RallyPath" type="Path2D" parent="." unique_id=577293727]
+curve = SubResource("Curve2D_gnend")
+
+[node name="RallyMarker" type="Sprite2D" parent="." unique_id=853267566]
+visible = false
+self_modulate = Color(0.85585207, 0, 0.04960934, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_gnend")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
