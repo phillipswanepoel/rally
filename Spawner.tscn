@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://y4tr3yvjp7qi" path="res://spawner.gd" id="1_mimr8"]
 [ext_resource type="Texture2D" uid="uid://ct078edwe36bi" path="res://icon.svg" id="2_gnend"]
 
-[node name="Spawner" type="Node2D" unique_id=790367624 node_paths=PackedStringArray("mob")]
+[node name="Spawner" type="Node2D" unique_id=790367624]
 script = ExtResource("1_mimr8")
-mob = NodePath("")
+spawn_interval = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1580750449]
 texture = ExtResource("2_gnend")
@@ -19,8 +19,6 @@ offset_right = 64.0
 offset_bottom = 64.0
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1150841083]
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=689788839]
 
 [node name="RallyMarker" type="Sprite2D" parent="." unique_id=853267566]
 visible = false

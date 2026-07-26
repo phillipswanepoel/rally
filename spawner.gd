@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var spawn_interval: float = 2.5
+@export var spawn_interval: float = 0.5
 @export var mob_type: MobDatabase.MobType
 var spawning: bool = false
 

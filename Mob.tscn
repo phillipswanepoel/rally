@@ -3,9 +3,25 @@
 [ext_resource type="Texture2D" uid="uid://ct078edwe36bi" path="res://icon.svg" id="1_584jx"]
 [ext_resource type="Script" uid="uid://dbr4qqdtgp1tp" path="res://mob.gd" id="1_r6b5h"]
 
-[node name="Mob" type="Node2D" unique_id=1369015231]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nokgg"]
+radius = 70.0
+height = 148.0
+
+[node name="Mob" type="CharacterBody2D" unique_id=1521216261]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_r6b5h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=32278257]
 modulate = Color(0.20392157, 1, 0.08235294, 1)
 texture = ExtResource("1_584jx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=195680529]
+shape = SubResource("CapsuleShape2D_nokgg")
+disabled = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=87629541]
+path_desired_distance = 40.0
+target_desired_distance = 40.0
+path_max_distance = 200.0
+avoidance_enabled = true
+radius = 30.0
