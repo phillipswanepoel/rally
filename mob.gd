@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if current_enemy_target:
+		navigation_agent.target_position = current_enemy_target.global_position
 		move_towards(current_enemy_target.global_position)
 	else:
 		move_towards(global_position)
