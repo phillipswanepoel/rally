@@ -7,21 +7,37 @@
 radius = 70.0
 height = 148.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
+radius = 500.0
+
 [node name="Mob" type="CharacterBody2D" unique_id=1521216261]
 scale = Vector2(0.5, 0.5)
+collision_mask = 0
 script = ExtResource("1_r6b5h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=32278257]
-modulate = Color(0.20392157, 1, 0.08235294, 1)
+self_modulate = Color(0.99764484, 0.989011, 0.98999274, 1)
 texture = ExtResource("1_584jx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=195680529]
 shape = SubResource("CapsuleShape2D_nokgg")
-disabled = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=87629541]
 path_desired_distance = 40.0
 target_desired_distance = 40.0
 path_max_distance = 200.0
+simplify_path = true
+simplify_epsilon = 1.0
+path_search_max_polygons = 1024
 avoidance_enabled = true
-radius = 30.0
+radius = 15.0
+neighbor_distance = 250.0
+time_horizon_obstacles = 1.0
+
+[node name="DetectionRange" type="Area2D" parent="." unique_id=1374599741]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange" unique_id=1413080836]
+shape = SubResource("CircleShape2D_nokgg")
+
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detected"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_vanished"]

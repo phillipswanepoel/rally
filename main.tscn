@@ -15,11 +15,19 @@ size = Vector2(130, 129)
 [node name="Main" type="Node2D" unique_id=40937128]
 
 [node name="Spawner" parent="." unique_id=790367624 instance=ExtResource("1_ig7tw")]
+position = Vector2(-792, -371)
+spawn_interval = 5.0
+
+[node name="Spawner2" parent="." unique_id=308073145 instance=ExtResource("1_ig7tw")]
+position = Vector2(453, -256)
+spawn_interval = 5.0
+team = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=638445473]
 zoom = Vector2(0.8, 0.8)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=342412480]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_ig7tw")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D" unique_id=778032674]
